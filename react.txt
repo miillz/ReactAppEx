@@ -1,0 +1,123 @@
+//Code Brute
+class Hello extends React.Component {
+  render() {
+    return <table>
+             <thead>
+               <th>When</th>
+               <th>Who</th>
+               <th>Description</th>
+             </thead>
+             <tr>
+               <td> 2 Minutes Ago</td>
+               <td>Jill Dupris</td>
+               <td>Create a New account</td>
+             </tr>
+             <tr>
+               <td>1 Hours Ago</td>
+               <td>Lose White</td>
+               <td>Add first Chapter</td>
+             </tr>
+          </table>
+  }
+}
+
+ReactDOM.render(
+  <Hello name="World" />,
+  document.getElementById('container')
+);
+
+//Creation des elements
+var App = React.createClass({
+        render(){
+        return <div>Welcome People</div>
+      }
+    })
+
+    ReactDOM.render(React.createElement(App),
+    document.getElementById('root'))
+
+
+D'abord on crée la classe apres on cree les elements
+    //Code Optimise
+    //Method 1
+
+    var App = React.createClass({
+render(){
+        var data = [{ "when": "2 minutes ago",
+        "who": "Jill Dupre",
+        "description": "Created new account"
+        },
+        {
+        "when": "1 hour ago",
+        "who": "Lose White",
+        "description": "Added fist chapter"
+        },
+        {
+        "when": "2 hours ago",
+        "who": "Jordan Whash",
+        "description": "Created new account"
+        }];
+
+        var rows = data.map(function(row){
+        return <tr>
+        <td>{row.when}</td>
+        <td>{row.who}</td>
+        <td>{row.description}</td>
+        </tr>
+        })
+        return <table>
+        <thead>
+        <th>When</th>
+        <th>Who</th>
+        <th>Description</th>
+        </thead>
+        {rows}
+        </table>
+  }
+
+});
+
+ReactDOM.render(
+  <App name="World" />,
+  document.getElementById('container')
+);
+
+//Method 2
+class Hello extends React.Component {
+  render(){
+          var data = [{ "when": "2 minutes ago",
+          "who": "Jill Dupre",
+          "description": "Created new account"
+          },
+          {
+          "when": "1 hour ago",
+          "who": "Lose White",
+          "description": "Added fist chapter"
+          },
+          {
+          "when": "2 hours ago",
+          "who": "Jordan Whash",
+          "description": "Created new account"
+          }];
+
+          var rows = data.map(function(row){
+          return <tr>
+          <td>{row.when}</td>
+          <td>{row.who}</td>
+          <td>{row.description}</td>
+          </tr>
+          })
+          return <table>
+          <thead>
+          <th>When</th>
+          <th>Who</th>
+          <th>Description</th>
+          </thead>
+          {rows}
+          </table>
+      }
+}
+
+
+
+setstate  -> allow us to update a state we can also do that by calling ComponentDidMount Method or use a function
